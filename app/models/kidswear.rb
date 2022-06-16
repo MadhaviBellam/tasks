@@ -1,0 +1,2 @@
+class Kidswear < ApplicationRecord
+end

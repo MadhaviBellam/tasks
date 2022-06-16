@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_15_100500) do
+ActiveRecord::Schema.define(version: 2022_06_16_100649) do
+
+# Could not dump table "Kidswears" because of following StandardError
+#   Unknown type '' for column 'size'
 
   create_table "appointments", force: :cascade do |t|
     t.string "time"
@@ -57,6 +60,18 @@ ActiveRecord::Schema.define(version: 2022_06_15_100500) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "custumers", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.integer "phno"
+  end
+
+  create_table "custumers_products", id: false, force: :cascade do |t|
+    t.integer "custumer_id", null: false
+    t.integer "product_id", null: false
+  end
+
   create_table "doctors", force: :cascade do |t|
     t.string "name"
     t.string "specalization"
@@ -76,6 +91,12 @@ ActiveRecord::Schema.define(version: 2022_06_15_100500) do
     t.index ["company_id"], name: "index_employees_on_company_id"
   end
 
+  create_table "meeshows", force: :cascade do |t|
+    t.string "categories"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "mobiles", force: :cascade do |t|
     t.string "name"
     t.integer "price"
@@ -91,6 +112,17 @@ ActiveRecord::Schema.define(version: 2022_06_15_100500) do
     t.string "health_issue"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "price"
+    t.integer "cost"
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -114,9 +146,16 @@ ActiveRecord::Schema.define(version: 2022_06_15_100500) do
     t.string "subject"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "lastname"
+  end
+
   add_foreign_key "appointments", "doctors"
   add_foreign_key "appointments", "patients"
   add_foreign_key "books", "authors"
   add_foreign_key "chargers", "mobiles"
   add_foreign_key "employees", "companies"
+  add_foreign_key "products", "users"
 end
