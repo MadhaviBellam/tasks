@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_16_100649) do
+ActiveRecord::Schema.define(version: 2022_06_16_114330) do
 
 # Could not dump table "Kidswears" because of following StandardError
 #   Unknown type '' for column 'size'
@@ -89,6 +89,20 @@ ActiveRecord::Schema.define(version: 2022_06_16_100649) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["company_id"], name: "index_employees_on_company_id"
+  end
+
+  create_table "googleforms", force: :cascade do |t|
+    t.string "firstname"
+    t.string "lastname"
+    t.string "age"
+    t.string "dob"
+    t.string "email"
+    t.string "phno"
+    t.string "pincode"
+    t.string "place"
+    t.string "education"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "meeshows", force: :cascade do |t|
