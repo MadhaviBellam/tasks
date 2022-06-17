@@ -1,0 +1,2 @@
+class Meeshow < ApplicationRecord
+end
