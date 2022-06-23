@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
+ActiveRecord::Schema.define(version: 2022_06_22_051636) do
+
 ActiveRecord::Schema.define(version: 2022_06_21_060030) do
+
 
 # Could not dump table "Kidswears" because of following StandardError
 #   Unknown type '' for column 'size'
@@ -56,6 +60,13 @@ ActiveRecord::Schema.define(version: 2022_06_21_060030) do
   create_table "companies", force: :cascade do |t|
     t.string "name"
     t.string "place"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string "name"
+    t.string "mobileno"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -129,6 +140,14 @@ ActiveRecord::Schema.define(version: 2022_06_21_060030) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "customer_id", null: false
+    t.index ["customer_id"], name: "index_orders_on_customer_id"
+  end
+
   create_table "patients", force: :cascade do |t|
     t.string "name"
     t.integer "age"
@@ -153,6 +172,14 @@ ActiveRecord::Schema.define(version: 2022_06_21_060030) do
     t.integer "cost"
     t.integer "user_id", null: false
     t.index ["user_id"], name: "index_products_on_user_id"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.integer "height"
+    t.integer "width"
+    t.string "size"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -189,6 +216,8 @@ ActiveRecord::Schema.define(version: 2022_06_21_060030) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "lastname"
+    t.integer "profile_id", null: false
+    t.index ["profile_id"], name: "index_users_on_profile_id"
   end
 
   add_foreign_key "appointments", "doctors"
@@ -196,5 +225,7 @@ ActiveRecord::Schema.define(version: 2022_06_21_060030) do
   add_foreign_key "books", "authors"
   add_foreign_key "chargers", "mobiles"
   add_foreign_key "employees", "companies"
+  add_foreign_key "orders", "customers"
   add_foreign_key "products", "users"
+  add_foreign_key "users", "profiles"
 end
