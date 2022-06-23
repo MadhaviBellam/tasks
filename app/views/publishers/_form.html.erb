@@ -1,0 +1,21 @@
+<% if @publisher.errors.any? %>
+<h2>The following errors prevented the publisher from being saved</h2>
+<ul>
+  <%= @publisher.errors.full_messages.each do |msg| %>
+   <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
+<%= form_with(model: @publisher,local: true) do |f| %>
+<p>
+  <%= f.label :firstname %><br/>
+  <%= f.text_field :firstname %>
+</p>
+<p>
+  <%= f.label :lastname %><br/>
+  <%= f.text_field :lastname %><br/>
+</p>
+<p>
+  <%= f.submit %>
+</p>
+<% end %>

@@ -1,0 +1,6 @@
+<h1>Showing Publishers Details</h1>
+<p><strong>Firstname: </strong><%= @publisher.firstname %></p>
+<p><strong>Lastname: </strong><%= @publisher.lastname %></p>
+<%= link_to 'Edit',edit_publisher_path(@publisher) %> |
+<%= link_to 'Delete',publisher_path(@publisher),method: :delete,data:{confirm:"Are you sure?"} %> |
+<%= link_to 'Return to publishers listing',publishers_path %>

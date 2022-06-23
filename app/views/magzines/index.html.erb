@@ -1,0 +1,24 @@
+<h1>magzines listing pages</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th colspan="3">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @magzines.each do |magzine| %>
+    <tr>
+      <td><%= magzine.title %></td>
+      <td><%= magzine.description %></td>
+      <td><%= link_to 'Edit',edit_magzine_path(magzine) %></td>
+      <td><%= link_to 'Show',magzine_path(magzine) %></td>
+      <td><%= link_to 'Delete'magzine_path(magzine),method: :delete,data:{confirm:"Are you sure?"} %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<p>
+  <%= link_to 'Create new Magzine',new_magzine_path %>
+</p>
