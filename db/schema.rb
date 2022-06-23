@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2022_06_22_051636) do
+
+ActiveRecord::Schema.define(version: 2022_06_21_060030) do
+
 
 # Could not dump table "Kidswears" because of following StandardError
 #   Unknown type '' for column 'size'

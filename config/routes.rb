@@ -1,8 +1,13 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
+
   #resources :profiles
   #resources :orders
   #resources :customers
   #resources :books, :users ,:items
+
+  resources :people
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   #get 'customers/:id', to: 'customers#show'
   #get '/customers/:id', to: 'customers#show', as: 'customer'
