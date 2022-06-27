@@ -2,6 +2,10 @@
 
 # app/models/book.rb
 class Book < ApplicationRecord
+  validates :name,presence: true,length: {minimum: 4,maximum: 100}
+  validates :pages,presence: true,numericality: true
+  validates :cost,presence: true,numericality: true
+  belongs_to :Author
   has_many :authors
   validates_length_of :name, minimum: 4, maximum: 20
   validates_presence_of :pages, minimum: 100, maximum: 1000

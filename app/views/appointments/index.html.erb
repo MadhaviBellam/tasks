@@ -1,0 +1,24 @@
+<h1>Appointments list</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Time</th>
+      <th>Date</th>
+      <th colspan="3">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @appointments.each do |appointment| %>
+    <tr>
+      <td><%= appointment.time %></td>
+      <td><%= appointment.date %></td>
+      <td><%= link_to 'Edit',edit_appointment_path(appointment) %></td>
+      <td><%= link_to 'Show',appointment_path(appointment) %></td>
+      <td><%= link_to 'Delete',appointment_path(appointment),method: :delete,data: {confirm:"Are you sure?"} %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<p>
+  <%= link_to 'Create new  appointment',new_appointment_path %>
+</p>

@@ -1,0 +1,6 @@
+<h1>Showing Chargers details</h1>
+<p><strong>Name: </strong><%= @charger.name %></p>
+<p><strong>Cost: </strong><%= @charger.cost %></p>
+<%= link_to 'Edit',edit_charger_path(@charger) %>|
+<%= link_to 'Delete',charger_path(@charger),method: :delete,data: {confirm:"Are you sure?"} %>|
+<%= link_to 'Return to chargers listing',new_charger_path %>

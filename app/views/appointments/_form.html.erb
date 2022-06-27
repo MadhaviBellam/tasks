@@ -1,0 +1,21 @@
+<% if @appointment.errors.any? %>
+<h2>The following errors prevented the appointment from being saved</h2>
+<ul>
+  <% @appointment.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
+<%= form_with(model: @appointment,local: true) do |f| %>
+<p>
+  <%= f.label :time %><br/>
+  <%= f.text_field :time %>
+</p>
+<p>
+  <%= f.label :date %><br/>
+  <%= f.text_field :date %>
+</p>
+<p>
+  <%= f.submit %>
+</p>
+<% end %>

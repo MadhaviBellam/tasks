@@ -1,0 +1,7 @@
+<h1>Showing magzine details</h1>
+<p><strong>Title: </strong><%= @magzine.title %></p>
+<p><strong>Description: </strong><%= @magzine.description %></p>
+<td><%= link_to 'Edit',edit_magzine_path(@magzine) %></td>|
+<td><%= link_to 'Show',magzine_path(@magzine) %></td>|
+<td><%= link_to 'Delete',magzine_path(@magzine),method: :delete,data:{confirm:"Are you sure?"} %></td>
+<%= link_to 'Return to magzines listing',magzines_path %>

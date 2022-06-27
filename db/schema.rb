@@ -11,6 +11,8 @@
 # It's strongly recommended that you check this file into your version control system.
 
 
+ActiveRecord::Schema.define(version: 2022_06_22_120039) do
+
 ActiveRecord::Schema.define(version: 2022_06_22_051636) do
 
 ActiveRecord::Schema.define(version: 2022_06_21_060030) do
@@ -126,6 +128,13 @@ ActiveRecord::Schema.define(version: 2022_06_21_060030) do
     t.string "weight"
   end
 
+  create_table "magzines", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "meeshows", force: :cascade do |t|
     t.string "categories"
     t.datetime "created_at", precision: 6, null: false
@@ -178,6 +187,13 @@ ActiveRecord::Schema.define(version: 2022_06_21_060030) do
     t.integer "height"
     t.integer "width"
     t.string "size"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "publishers", force: :cascade do |t|
+    t.string "firstname"
+    t.string "lastname"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

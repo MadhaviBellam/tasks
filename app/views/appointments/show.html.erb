@@ -1,0 +1,6 @@
+<h1>Showing Appointments details</h1>
+<p><strong>date: </strong><%= @appointment.time %></p>
+<p><strong>time: </strong><%= @appointment.date %></p>
+<%= link_to 'Edit',edit_appointment_path(@appointment) %>|
+<%= link_to 'Delete',appointment_path(@appointment),method: :delete,data: {confirm:"Are you sure?"} %>|
+<%= link_to 'Return to appointments listing',new_appointment_path %>
