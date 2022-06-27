@@ -1,0 +1,21 @@
+<% if @charger.errors.any? %>
+<h2>The following errors prevented the charger from being saved</h2>
+<ul>
+  <% @charger.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
+<%= form_with(model: @charger,local: true) do |f| %>
+<p>
+  <%= f.label :name %><br/>
+  <%= f.text_field :name %>
+</p>
+<p>
+  <%= f.label :cost %><br/>
+  <%= f.text_field :cost %>
+</p>
+<p>
+  <%= f.submit %>
+</p>
+<% end %>

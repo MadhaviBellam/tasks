@@ -1,0 +1,7 @@
+<h1>Showing Authors details</h1>
+<p><strong>Firstname: </strong><%= @author.firstname %></p>
+<p><strong>Lastname: </strong><%= @author.lastname %></p>
+<p><strong>Age: </strong><%= @author.age %></p>
+<%= link_to 'Edit',edit_author_path(@author) %>|
+<%= link_to 'Delete',author_path(@author),method: :delete,data: {confirm:"Are you sure?"} %>|
+<%= link_to 'Return to authors listing',new_author_path %>

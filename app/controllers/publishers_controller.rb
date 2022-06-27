@@ -1,5 +1,4 @@
 class PublishersController < ApplicationController
-  before_action :Authenticate_publisher
   before_action :set_publisher,only: [:show, :edit, :update, :destroy]
   def show
     #@publisher = Publisher.find(params[:id])

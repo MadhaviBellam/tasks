@@ -1,0 +1,6 @@
+<h1>Showing Companies details</h1>
+<p><strong>Name: </strong><%= @company.name %></p>
+<p><strong>Place: </strong><%= @company.place %></p>
+<%= link_to 'Edit',edit_charger_path(@company) %>|
+<%= link_to 'Delete',charger_path(@company),method: :delete,data: {confirm:"Are you sure?"} %>|
+<%= link_to 'Return to companies listing',new_company_path %>

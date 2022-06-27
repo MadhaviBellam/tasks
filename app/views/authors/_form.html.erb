@@ -1,0 +1,25 @@
+<% if @author.errors.any? %>
+<h2>The following errors prevented the author from being saved</h2>
+<ul>
+  <% @author.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
+<%= form_with(model: @author,local: true) do |f| %>
+<p>
+  <%= f.label :firstname %><br/>
+  <%= f.text_field :firstname %>
+</p>
+<p>
+  <%= f.label :lastname %><br/>
+  <%= f.text_field :lastname %>
+</p>
+<p>
+  <%= f.label :age %><br/>
+  <%= f.text_field :age %>
+</p>
+<p>
+  <%= f.submit %>
+</p>
+<% end %>

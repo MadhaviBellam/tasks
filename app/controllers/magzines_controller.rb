@@ -1,6 +1,6 @@
 class MagzinesController < ApplicationController
+  before_action :set_magzine,only: [:show, :edit, :update, :destroy]
   def show
-    @magzine = Magzine.find(params[:id])
   end
   def index
     @magzines = Magzine.all
@@ -9,10 +9,9 @@ class MagzinesController < ApplicationController
     @magzine = Magzine.new
   end
   def edit
-    @magzine = Magzine.find(params[:id])
   end
   def create
-    @magzine = Magzine.new(params.require(:magzine).permit(:title, :description))
+    @magzine = Magzine.new(magzine_params)
     if @magzine.save
       flash[:notice] = "Magzine was created successfully"
       redirect_to @magzine
@@ -21,8 +20,7 @@ class MagzinesController < ApplicationController
     end
   end
   def update
-    @magzine =Magzine.find(params[:id])
-    if @magzine.update(params.require(:magzine).permit(:title, :description))
+    if @magzine.update(magzine_params)
       flash[:notice] = "Magzine was updated successfully"
       redirect_to @magzine
     else
@@ -30,9 +28,15 @@ class MagzinesController < ApplicationController
     end
   end
   def destroy
-    @magzine = Magzine.find(params[:id])
     @magzine.destroy
     redirect_to magzines_path
+  end
+  private
+  def set_magzine
+    @magzine = Magzine.find(params[:id])
+  end
+  def magzine_params
+    params.require(:magzine).permit(:title, :description)
   end
 
 end
